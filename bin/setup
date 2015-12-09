@@ -12,17 +12,16 @@ ln -s ${OPENSHIFT_DATA_DIR}/activator-${activatorV} ${OPENSHIFT_DATA_DIR}/activa
 
 #install scala
 SCALA_VERSION=2.11.7
+echo "Downloading scala $SCALA_VERSION"
 curl -fsL http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C ~
-#export PATH=~/scala-$SCALA_VERSION/bin:$PATH
+export PATH=~/scala-$SCALA_VERSION/bin:$PATH
 #scala -version
 
 #install sbt
 SBT_VERSION=0.13.8
-echo "Download sbt $SBT_VERSION"
-curl -s -o  ${OPENSHIFT_DATA_DIR}/sbt.tgz http://scalasbt.artifactoryonline.com/scalasbt/sbt-native-packages/org/scala-sbt/sbt/$SBT_VERSION/sbt.tgz
-tar xzf sbt.tgz
-rm -f xzf sbt.tgz
-#export PATH=~/scala-$SCALA_VERSION/bin:$PATH
+echo "Downloading sbt $SBT_VERSION"
+curl -fsL https://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz | tar xfz - -C ~
+export PATH=~/scala-$SCALA_VERSION/bin:$PATH
 #sbt --version
 
 #install java8
