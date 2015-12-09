@@ -13,19 +13,18 @@ ln -s ${OPENSHIFT_DATA_DIR}/activator-${activatorV} ${OPENSHIFT_DATA_DIR}/activa
 #install scala
 SCALA_VERSION=2.11.7
 echo "Downloading scala $SCALA_VERSION"
-curl -fsL http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C ~
-export PATH=~/scala-$SCALA_VERSION/bin:$PATH
+curl -fsL http://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C ${OPENSHIFT_DATA_DIR}
+export PATH=${OPENSHIFT_DATA_DIR}/scala-$SCALA_VERSION/bin:$PATH
 #scala -version
 
 #install sbt
 SBT_VERSION=0.13.8
 echo "Downloading sbt $SBT_VERSION"
-curl -fsL https://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz | tar xfz - -C ~
-export PATH=~/scala-$SCALA_VERSION/bin:$PATH
+curl -fsL https://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz | tar xfz - -C ${OPENSHIFT_DATA_DIR}
+export PATH=${OPENSHIFT_DATA_DIR}/scala-$SCALA_VERSION/bin:$PATH
 #sbt --version
 
 #install java8
-cd $OPENSHIFT_DATA_DIR
 wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz
 tar -zxf jdk-8u5-linux-x64.tar.gz
 #export PATH=$OPENSHIFT_DATA_DIR/jdk1.8.0_05/bin:$PATH
