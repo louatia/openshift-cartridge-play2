@@ -1,5 +1,5 @@
 #!/bin/bash -e
-PATH=${OPENSHIFT_DATA_DIR}/scala/bin/:${OPENSHIFT_DATA_DIR}/sbt/bin/:/bin/:/usr/bin:$PATH
+PATH=${OPENSHIFT_DATA_DIR}/sbt/bin/:/bin/:/usr/bin:$PATH
 PATH=$OPENSHIFT_DATA_DIR/jdk1.8.0_05/bin:$PATH
 JAVA_HOME="$OPENSHIFT_DATA_DIR/jdk/jdk1.8.0_05"
 
@@ -30,7 +30,7 @@ function build {
     unset GIT_WORK_TREE
 
     cd ${OPENSHIFT_REPO_DIR}
-    activator clean stage -Duser.home=${OPENSHIFT_DATA_DIR} -mem 512
+    sbt clean stage -Duser.home=${OPENSHIFT_DATA_DIR} -mem 512
 }
 
 function tidy {
