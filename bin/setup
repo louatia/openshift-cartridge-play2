@@ -13,6 +13,7 @@ SBT_VERSION=0.13.8
 echo "Downloading sbt $SBT_VERSION"
 curl -fsL https://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz | tar xfz - -C ${OPENSHIFT_DATA_DIR}
 export PATH=${OPENSHIFT_DATA_DIR}/sbt-$SBT_VERSION/bin:$PATH
+export PATH=${OPENSHIFT_DATA_DIR}/sbt/bin:$PATH
 echo "version of sbt"
 #sbt --version
 
