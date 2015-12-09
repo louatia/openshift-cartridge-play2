@@ -1,4 +1,7 @@
 #!/bin/bash -e
+PATH=${OPENSHIFT_DATA_DIR}/scala/bin/:${OPENSHIFT_DATA_DIR}/sbt/bin/:/bin/:/usr/bin:$PATH
+PATH=$OPENSHIFT_DATA_DIR/jdk1.8.0_05/bin:$PATH
+JAVA_HOME="$OPENSHIFT_DATA_DIR/jdk/jdk1.8.0_05"
 
 function start {
     cd $OPENSHIFT_REPO_DIR
