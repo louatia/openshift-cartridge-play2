@@ -16,6 +16,8 @@ Categories:
 Provides:
   - play2
   - activator
+  - sbt
+  - scala-2.11.7
 Scaling:
   Min: 1
   Max: -1
